@@ -7,7 +7,7 @@ class ProductItem extends Component {
         const {title, image, receipt, status, id} = this.props
         return (
             <Card className="col-4 bg-dark text-white p-0">
-                <Card.Img src={"http://127.0.0.1:8000/storage/" + image} alt="Card image" />
+                <Card.Img src={"http://delivery.royale.uz/storage/" + image} alt="Card image" />
                 <Card.ImgOverlay>
                     <Card.Title>{title}</Card.Title>
                     <Card.Text>{receipt}
