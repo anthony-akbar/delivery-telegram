@@ -11,7 +11,7 @@ class App extends Component {
     }
 
     componentDidMount() {
-        axios.get("http://delivery.royale.uz/api/products").then((res) => {
+        axios.get("https://delivery.royale.uz/api/products").then((res) => {
             this.setState({data: res.data.data})
             console.log(res.data.data)
         }).then(() => {
