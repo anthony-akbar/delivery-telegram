@@ -14,11 +14,6 @@ class App extends Component {
         console.log('Axios started...')
         var style = getComputedStyle(document.body)
         if(style.getPropertyValue('--tg-theme-bg-color') === '#ffffff'){
-            try{
-                $('.tg-text-color').removeClass("tg-text-color")
-            }catch(e){
-                this.setState({error: e})
-            }
         }
         axios.get("https://delivery.royale.uz/api/products").then((res) => {
             this.setState({data: res.data.data})
