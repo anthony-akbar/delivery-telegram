@@ -2,7 +2,7 @@ import './App.css';
 import React, {Component} from 'react';
 import axios from 'axios';
 import Products from "./Components/products";
-
+import $ from 'jquery';
 class App extends Component {
 
     state = {
@@ -13,7 +13,7 @@ class App extends Component {
         console.log('Axios started...')
         var style = getComputedStyle(document.body)
         if(style.getPropertyValue('--tg-theme-bg-color') === '#ffffff'){
-            document.getElementsByClassName("tg-text-color").style.color = "#17212b";
+            $('.tg-text-color').css('color',"#17212b")
         }
         axios.get("https://delivery.royale.uz/api/products").then((res) => {
             this.setState({data: res.data.data})
