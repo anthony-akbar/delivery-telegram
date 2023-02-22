@@ -13,7 +13,7 @@ class App extends Component {
         console.log('Axios started...')
         var style = getComputedStyle(document.body)
         if(style.getPropertyValue('--tg-theme-bg-color') === '#ffffff'){
-            style.setProperty('--tg-theme-bg-color', '#17212b')
+            style.setProperty('--tg-theme-button-text-color', '#17212b')
         }
         axios.get("https://delivery.royale.uz/api/products").then((res) => {
             this.setState({data: res.data.data})
