@@ -2,7 +2,6 @@ import './App.css';
 import React, {Component} from 'react';
 import axios from 'axios';
 import Products from "./Components/products";
-import Navbars from "./Components/navbar";
 
 class App extends Component {
 
@@ -12,6 +11,8 @@ class App extends Component {
 
     componentDidMount() {
         console.log('Axios started...')
+        var style = getComputedStyle(document.body)
+        this.setState({color: style.getPropertyValue('--tg-theme-button-text-color')})
         axios.get("https://delivery.royale.uz/api/products").then((res) => {
             this.setState({data: res.data.data})
             console.log(res.data.data)
@@ -23,6 +24,9 @@ class App extends Component {
     render() {
         return (
             <div>
+                <div>
+                    {this.state.color}
+                </div>
                 <Products data={this.state.data}/>
             </div>
         );

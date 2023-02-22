@@ -11,7 +11,10 @@ class ProductItem extends Component {
                     <div className={'card-img-top'}></div>
                     <Card.Img style={{borderRadius: "5%"}} variant="top" src={"https://delivery.royale.uz/storage/" + image}/>
                 </div>
-                <div style={{fontSize:'10px'}} className={'tg-text-color py-4'} >{title} * {price}</div>
+                <div className={'py-4'}>
+                    <div className={'tg-text-color'} >{title}</div>
+                    <div className={'tg-text-color'} >{price}</div>
+                </div>
                 <div className={'actions'}>
                     <button className={'tg-button btn fw-bold'}>ADD</button>
                 </div>
