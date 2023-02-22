@@ -13,7 +13,7 @@ class ProductItem extends Component {
                 </div>
                 <div className={'py-4'} >{title} * {price}</div>
                 <div className={'actions'}>
-                    <button className={'btn btn-warning text-white fw-bold'}>ADD</button>
+                    <button className={'tg-button btn fw-bold'}>ADD</button>
                 </div>
             </div>
     );

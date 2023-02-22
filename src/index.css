@@ -13,3 +13,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.tg-button{
+  background-color: var(--tg-theme-button-color);
+  color: var(--tg-theme-button-text-color);
+}
