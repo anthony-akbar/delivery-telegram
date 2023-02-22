@@ -12,8 +12,9 @@ class App extends Component {
     componentDidMount() {
         console.log('Axios started...')
         var style = getComputedStyle(document.body)
-        this.setState({color: style.getPropertyValue('--tg-theme-button-text-color')})
-        this.setState({bg: style.getPropertyValue('--tg-theme-bg-color')})
+        if(style.getPropertyValue('--tg-theme-bg-color') === '#ffffff'){
+            style.setProperty('--tg-theme-bg-color', '#17212b')
+        }
         axios.get("https://delivery.royale.uz/api/products").then((res) => {
             this.setState({data: res.data.data})
             console.log(res.data.data)
@@ -26,7 +27,6 @@ class App extends Component {
         return (
             <div>
                 <div>
-                    {this.state.color} |||| {this.state.bg}
                 </div>
                 <Products data={this.state.data}/>
             </div>
