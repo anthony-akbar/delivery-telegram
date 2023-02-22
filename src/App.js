@@ -6,14 +6,19 @@ import $ from 'jquery';
 class App extends Component {
 
     state = {
-        data: []
+        data: [],
+        error: []
     }
 
     componentDidMount() {
         console.log('Axios started...')
         var style = getComputedStyle(document.body)
         if(style.getPropertyValue('--tg-theme-bg-color') === '#ffffff'){
-            $('.tg-text-color').css('color',"#17212b")
+            try{
+                $('.tg-text-color').removeClass("tg-text-color")
+            }catch(e){
+                this.setState({error: e})
+            }
         }
         axios.get("https://delivery.royale.uz/api/products").then((res) => {
             this.setState({data: res.data.data})
@@ -27,6 +32,7 @@ class App extends Component {
         return (
             <div>
                 <div>
+                    {this.state.error}
                 </div>
                 <Products data={this.state.data}/>
             </div>
