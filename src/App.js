@@ -23,7 +23,6 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Navbars/>
                 <Products data={this.state.data}/>
             </div>
         );

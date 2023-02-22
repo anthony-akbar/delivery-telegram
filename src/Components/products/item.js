@@ -6,14 +6,13 @@ class ProductItem extends Component {
     render() {
         const {title, image, receipt, status, id} = this.props
         return (
-            <Card className="col-4 bg-dark text-white p-0">
-                <Card.Img src={"https://delivery.royale.uz/storage/" + image} alt="Card image" />
-                <Card.ImgOverlay>
-                    <Card.Title>{title}</Card.Title>
-                    <Card.Text>{receipt}
-                    </Card.Text>
-                    <Card.Text>{status}</Card.Text>
-                </Card.ImgOverlay>
+            <Card className={'col-4'}>
+                <Card.Img variant="top" src={"https://delivery.royale.uz/storage/" + image}/>
+                <Card.Body>
+                    <span>{title}</span>
+                    <span>{receipt}</span>
+                    <Button variant={status === 1 ? "primary" : "danger"}>Go somewhere</Button>
+                </Card.Body>
             </Card>
     );
     }
