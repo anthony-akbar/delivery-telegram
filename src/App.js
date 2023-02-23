@@ -8,20 +8,12 @@ class App extends Component {
 
     state = {
         data: [],
-        cart: [
-            {
-                'id': 2,
-                'count': 1
-            }
-        ]
+        cart: []
     }
 
     componentDidMount() {
         axios.get("https://delivery.royale.uz/api/products").then((res) => {
             this.setState({data: res.data.data})
-            console.log(res.data.data)
-        }).then(() => {
-            console.log(this.state.data)
         })
     }
 
