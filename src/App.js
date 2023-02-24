@@ -3,6 +3,8 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import Products from "./Components/products";
 import $ from 'jquery';
+import {Routes, Route, BrowserRouter} from 'react-router-dom';
+import Cart from "./Components/cart";
 
 class App extends Component {
 
@@ -19,9 +21,14 @@ class App extends Component {
 
     render() {
         return (
-            <div>
-                <Products data={this.state}/>
-            </div>
+            <>
+                <BrowserRouter>
+                    <Routes>
+                        <Route exact path='/' element={<Products data={this.state}/>}/>
+                        <Route exact path='/cart' element={<Cart data={this.state.data} cart={this.state.cart}/>}/>
+                    </Routes>
+                </BrowserRouter>
+            </>
         );
     }
 }

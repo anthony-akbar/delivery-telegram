@@ -49,8 +49,8 @@ class ProductItem extends Component {
                 <div className={'actions'}>
                     {cart.findIndex(item => item.id === id) >= 0 ?
                         (<div>
-                            <button onClick={() => this.minus(id)} className={'m-3 tg-button btn fw-bold'}>-</button>
-                            <button onClick={() => this.plus(id)} className={'m-3 tg-button btn fw-bold'}>+</button>
+                            <button onClick={() => this.minus(id)} className={'m-1 tg-button btn fw-bold'}>-</button>
+                            <button onClick={() => this.plus(id)} className={'m-1 tg-button btn fw-bold'}>+</button>
                         </div>) :
                         <button disabled={status !== 1} onClick={() => this.add(id)}
                                 className={'tg-button btn fw-bold'}>{status === 1 ? "ADD" : "Not Available"}</button>
