@@ -3,7 +3,9 @@ import {Table} from "react-bootstrap";
 import Nav from "../navbar";
 import {BackButton} from "@vkruglikov/react-telegram-web-app";
 import axios from "axios";
-import {useNavigate} from "react-router-dom";
+import {Navigate} from "react-router-dom";
+const telegram = window.Telegram.WebApp;
+
 
 class Cart extends Component {
 
@@ -16,17 +18,15 @@ class Cart extends Component {
         console.log(res.data)
     }
 
-    back() {
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        const navigate = useNavigate();
-        navigate('/')
+    componentDidUpdate() {
+        if(this.props.cart){
+
+        }
     }
 
     render() {
         return (
             <>
-                <Nav/>
-                <BackButton onClick={this.back()}/>
                 <Table>
                     <thead>
                     <tr>
@@ -47,7 +47,7 @@ class Cart extends Component {
                     )}
                     </tbody>
                 </Table>
-                <button onClick={this.add()}>ADD</button>
+                <button onClick={() => {return <Navigate push to="/"/>;}}>ADD</button>
             </>
         );
     }

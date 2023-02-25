@@ -10,7 +10,8 @@ class App extends Component {
 
     state = {
         data: [],
-        cart: []
+        cart: [],
+        redirect: false,
     }
 
     componentDidMount() {
