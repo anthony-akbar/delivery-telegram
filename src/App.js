@@ -11,7 +11,12 @@ class App extends Component {
     state = {
         data: [],
         cart: [],
-        redirect: false,
+        red: [
+            {
+                'redirect': false,
+                'back': false
+            }
+        ],
     }
 
     componentDidMount() {
@@ -25,8 +30,9 @@ class App extends Component {
             <>
                 <BrowserRouter>
                     <Routes>
-                        <Route exact path='/' element={<Products data={this.state}/>}/>
-                        <Route exact path='/cart' element={<Cart data={this.state.data} cart={this.state.cart}/>}/>
+                        <Route exact path='/' element={<Products data={this.state.data} cart={this.state.cart}
+                                                                 red={this.state.red}/>}/>
+                        <Route exact path='/cart' element={<Cart red={this.state.red} data={this.state.data} cart={this.state.cart}/>}/>
                     </Routes>
                 </BrowserRouter>
             </>

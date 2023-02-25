@@ -10,7 +10,20 @@ const telegram = window.Telegram.WebApp;
 class Cart extends Component {
 
     componentDidMount() {
-        console.log(this.props.cart)
+        telegram.MainButton.show()
+        telegram.MainButton.setParams({
+            text: 'Order',
+        })
+        window.Telegram.WebApp.onEvent('mainButtonClicked', () => this.add())
+
+        telegram.BackButton.show()
+        window.Telegram.WebApp.onEvent('backButtonClicked', () => this.back())
+    }
+
+    back(){
+        this.props.red[0]['redirect'] = false
+        this.props.red[0]['back'] = true
+        this.forceUpdate()
     }
 
     add(){
@@ -27,13 +40,14 @@ class Cart extends Component {
     render() {
         return (
             <>
-                <Table>
+                {!this.props.red[0]['back'] ?
+                <div className={'table'}>
                     <thead>
                     <tr>
-                        <th>№</th>
-                        <th>Product</th>
-                        <th>Count</th>
-                        <th>Total</th>
+                        <th className={'col'}>№</th>
+                        <th className={'col'}>Product</th>
+                        <th className={'col'}>Count</th>
+                        <th className={'col'}>Total</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -46,8 +60,9 @@ class Cart extends Component {
                         </tr>
                     )}
                     </tbody>
-                </Table>
-                <button onClick={() => {return <Navigate push to="/"/>;}}>ADD</button>
+                </div> :
+                    <Navigate to='/'/>
+                }
             </>
         );
     }
