@@ -27,15 +27,18 @@ class Cart extends Component {
     }
 
     add(){
-        const res = axios.post('http://172.20.10.8:8000/api/order', this.props.cart)
-        console.log(res.data)
+
+        axios.post('https://5a5f-89-237-196-157.eu.ngrok.io//api/order', this.props.cart)
+        /*
+        this.props.cart.map((item)=> axios.post('http://172.20.10.8:8000/api/order', item).then((res)=>{
+            telegram.MainButton.setParams({
+                text: res.data,
+              })
+        }))*/
+
+
     }
 
-    componentDidUpdate() {
-        if(this.props.cart){
-
-        }
-    }
 
     render() {
         return (

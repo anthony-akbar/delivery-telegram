@@ -5,6 +5,9 @@ const telegram = window.Telegram.WebApp;
 
 class Products extends Component {
 
+    componentDidMount() {
+        telegram.BackButton.hide()
+    }
 
     render() {
         return (
